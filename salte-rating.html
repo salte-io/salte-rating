@@ -1,0 +1,158 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!-- Iron Elements -->
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
+<!--
+`salte-rating` allows you to display ratings with extreme precision.
+### Styling
+The following custom properties and mixins are also available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--salte-rating-limit-color` | Color of the max number of items | `rgba(200, 200, 200, 0.9)`
+`--salte-rating-value-color` | Color of the current rating items | `rgba(55, 55, 55, 0.9)`
+
+@demo demo/index.html
+-->
+<dom-module id="salte-rating">
+  <template>
+    <style>
+      :host {
+        display: block;
+        position: relative;
+      }
+
+      :host[disabled] .foreground-rating .item {
+        cursor: default;
+      }
+
+      .background-rating {
+        color: var(--salte-rating-limit-color, rgba(200, 200, 200, 0.9));
+      }
+
+      .foreground-rating {
+        color: var(--salte-rating-value-color, rgba(55, 55, 55, 0.9));
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .item {
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .item-icon {
+        overflow: hidden;
+      }
+    </style>
+    <div class="background-rating">
+      <template is="dom-repeat" items="{{limitItems}}" strip-whitespace>
+        <iron-icon icon="[[icon]]"></iron-icon>
+      </template>
+    </div>
+    <div class="foreground-rating">
+      <template is="dom-repeat" items="{{limitItems}}" strip-whitespace>
+        <div class="item" on-mouseover="_previewRating" on-mouseout="reset" on-tap="_onRate">
+          <div class="item-icon">
+            <iron-icon icon="[[icon]]"></iron-icon>
+          </div>
+        </div>
+    </template>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'salte-rating',
+
+      properties: {
+        /**
+         * The number of items to display
+         */
+        limit: {
+          type: Number,
+          value: 5,
+          observer: 'renderItems'
+        },
+
+        /**
+         * The icon to use for the rating
+         */
+        icon: {
+          type: String,
+          value: 'star'
+        },
+
+        /**
+         * The current rating
+         */
+        value: {
+          type: Number,
+          value: 0,
+          observer: 'reset'
+        },
+
+        /**
+         * If true, the user will not be able to select a rating.
+         */
+        disabled: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
+        }
+      },
+
+      attached: function() {
+        this.reset();
+      },
+
+      /**
+       * Refreshes the rating display to the current rating
+       */
+      reset: function() {
+        this._refreshRating(this.value);
+      },
+
+      /**
+       * Renders the items based on the limit
+       */
+      renderItems: function() {
+        let limitItems = [];
+        for (let i = 0; i < this.limit; i++) {
+          limitItems.push(i);
+        }
+        this.set('limitItems', limitItems);
+      },
+
+      _refreshRating: function(value) {
+        let items = this.querySelectorAll('.item-icon');
+        for (var i = 0; i < items.length; i++) {
+          items[i].style.width = Math.min(Math.max(value - i, 0), 1) * 100 + '%';
+        }
+      },
+
+      _previewRating: function(e) {
+        if (this.disabled) return;
+        this._refreshRating(e.model.index + 1);
+      },
+
+      _onRate: function(e) {
+        if (this.disabled) return;
+        this.fire('rate', { rating: e.model.index + 1});
+      }
+
+      /**
+       * Fired when the user clicks one of the rating items
+       *
+       * @event rate
+       * @param {number} rating the rating the user selected.
+       */
+    });
+  </script>
+</dom-module>
