@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>salte-rating demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../../paper-slider/paper-slider.html">
+
+    <link rel="import" href="../salte-rating.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h3>Decimals are supported</h3>
+      <demo-snippet>
+        <template is="dom-bind">
+            <salte-rating value="[[value]]"></salte-rating>
+
+            <!-- Demo Helper -->
+            <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>
+        </template>
+      </demo-snippet>
+      <h3>Custom icons are supported</h3>
+      <demo-snippet>
+        <template is="dom-bind">
+            <salte-rating value="[[value]]" icon="favorite"></salte-rating>
+            <salte-rating value="[[value]]" icon="pets"></salte-rating>
+            <salte-rating value="[[value]]" icon="code"></salte-rating>
+
+            <!-- Demo Helper -->
+            <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>
+        </template>
+      </demo-snippet>
+      <h3>Limit and value colors can be customized</h3>
+      <demo-snippet>
+        <template is="dom-bind">
+            <style is="custom-style">
+              salte-rating.blue {
+                --salte-rating-limit-color: rgba(200, 200, 255, 0.9);
+                --salte-rating-value-color: rgba(55, 55, 175, 0.9);
+              }
+
+              salte-rating.red {
+                --salte-rating-limit-color: rgba(255, 200, 200, 0.9);
+                --salte-rating-value-color: rgba(175, 55, 55, 0.9);
+              }
+            </style>
+
+            <salte-rating class="blue" value="[[value]]" icon="favorite"></salte-rating>
+            <salte-rating class="red" value="[[value]]" icon="pets"></salte-rating>
+
+            <!-- Demo Helper -->
+            <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>
+        </template>
+      </demo-snippet>
+    </div>
+
+  </body>
+</html>

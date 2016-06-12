@@ -1,0 +1,27 @@
+{
+  "name": "salte-rating",
+  "main": "salte-rating.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "iron-icons": "PolymerElements/iron-icons#^1.1.3",
+    "iron-icon": "PolymerElements/iron-icon#^1.0.8"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "nick-woodward/iron-demo-helpers#c4381b02f8cbe196a0a35f2fb6060ed8b3b4869a",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "paper-slider": "PolymerElements/paper-slider#^1.0.11"
+  },
+  "homepage": "https://github.com/salte-io/salte-rating",
+  "_release": "058b94d9a8",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "058b94d9a8ad8e507d3677e0d49d5041d9cb6513"
+  },
+  "_source": "git://github.com/salte-io/salte-rating.git",
+  "_target": "master",
+  "_originalSource": "salte-io/salte-rating",
+  "_direct": true
+}
