@@ -1,6 +1,8 @@
+[![Travis](https://img.shields.io/travis/salte-io/salte-rating.svg?maxAge=2592000)](https://travis-ci.org/salte-io/salte-rating)
+
+_[Demo and API docs](https://salte-io.github.io/salte-rating/)_
+
 # \<salte-rating\>
-
-
 
 ## Install the Polymer-CLI
 
