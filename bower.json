@@ -11,6 +11,11 @@
     "url": "git://github.com/salte-io/salte-rating"
   },
   "main": "salte-rating.html",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "rating"
+  ],
   "license": "https://github.com/salte-io/salte-rating/LICENSE",
   "ignore": [],
   "dependencies": {
