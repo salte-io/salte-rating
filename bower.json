@@ -1,6 +1,18 @@
 {
   "name": "salte-rating",
+  "version": "1.0.0",
+  "description": "allows you to display ratings with extreme precision",
+  "authors": [
+    "Ceci <admin@cecilias.me>"
+  ],
+  "homepage": "https://github.com/salte-io/salte-rating",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/salte-io/salte-rating"
+  },
   "main": "salte-rating.html",
+  "license": "https://github.com/salte-io/salte-rating/LICENSE",
+  "ignore": [],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-icons": "PolymerElements/iron-icons#^1.1.3",
