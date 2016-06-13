@@ -109,7 +109,9 @@ Custom property | Description | Default
       },
 
       attached: function() {
-        this.reset();
+        this.async(function() {
+          this.reset();
+        }.bind(this));
       },
 
       /**
