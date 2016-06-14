@@ -16,7 +16,7 @@
     "polymer",
     "rating"
   ],
-  "license": "https://github.com/salte-io/salte-rating/LICENSE",
+  "license": "MIT",
   "ignore": [],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
