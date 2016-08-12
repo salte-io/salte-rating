@@ -4,6 +4,8 @@ _[Demo and API docs](https://salte-io.github.io/salte-rating/)_
 
 # \<salte-rating\>
 
+[![Join the chat at https://gitter.im/salte-io/salte-rating](https://badges.gitter.im/salte-io/salte-rating.svg)](https://gitter.im/salte-io/salte-rating?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Install the Polymer-CLI
 
 First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
