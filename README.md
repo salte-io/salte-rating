@@ -1,10 +1,9 @@
-[![Travis](https://img.shields.io/travis/salte-io/salte-rating.svg?maxAge=2592000)](https://travis-ci.org/salte-io/salte-rating)
-
 _[Demo and API docs](https://salte-io.github.io/salte-rating/)_
 
 # \<salte-rating\>
 
-[![Join the chat at https://gitter.im/salte-io/salte-rating](https://badges.gitter.im/salte-io/salte-rating.svg)](https://gitter.im/salte-io/salte-rating?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Slack Status][slack-image]][slack-url]
+[![Travis][travis-ci-image]][travis-ci-url]
 
 ## Install the Polymer-CLI
 
@@ -40,3 +39,9 @@ $ polymer test
 ```
 
 Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+
+[slack-image]: https://salte-slack.herokuapp.com/badge.svg
+[slack-url]: https://salte-slack.herokuapp.com/
+
+[travis-ci-image]: https://img.shields.io/travis/salte-io/salte-rating.svg?style=flat
+[travis-ci-url]: https://travis-ci.org/salte-io/salte-rating

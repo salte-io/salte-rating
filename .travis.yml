@@ -16,8 +16,6 @@ before_script:
 script:
 - xvfb-run polymer test
 - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then polymer test -s 'default'; fi
-after_success:
-- if [ "${TRAVIS_BRANCH}" = "master" ]; then scripts/gh-pages.sh; fi
 env:
   global:
   - secure: QRbBoBkC478r/D7+Z+4yJrbkqL3WZNUk/IN1ZMv+qxG/hp1BY93d7KluCY/fHZLmeSe1A7KNdpTtaq7ikPdGjmY8Bdg3P0kWmOPbD8as05NZzMDkyVNTYkVRIyRh/LaIJWidAokltLB0oo/Ywg6cgnVjcpWvEiPT0Br97UZWde0wET+DBjHHurQUfH6aVpUPY60TeHmuxf45234n+xGa92CMX9o10/VJbPaQAM19UbWiVR9HWw6flj43ilyRc1Bf86V6MWnLIqTC2gXMtuL45iE0vt0869Zu0ikh40EpZ4bwqELwkrFmNVxjFe1+yL+Zsm4HfbuwhoyybpiZoBgopC/dL9e/V+Gv8y8J86Il6gfyHwFeWi5tu/afxzk4ghUbBBpBSPbeDG3HOwMMEEFJFpDSmGQcg/fi00fjFupCfMKrbL+7cHgLb2VaTneqoKVckVSxrmiyAH7f1oYt78WHoqe744qw44t5QdxM9/3FTfvgU27A0jr3dy786ulSAxAm/zo+NvMp9fxl2gNN2wrcsvuf28E1HbIEyhtncXZwYgyIx4fHLrphMEbIjVw0cYcrs+gD8jsqSKFWOU9YO7aBVBsMQBEC3pn3ULfuUVY+L3qD3TfNzCMn9ThgNaH7Y7a1hQhr5fWqitkyeLoO66VF1wLRG+9ef5fBMlPaBDFkANE=
