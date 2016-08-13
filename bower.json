@@ -1,6 +1,6 @@
 {
   "name": "salte-rating",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "allows you to display ratings with extreme precision",
   "authors": [
     "Nick Woodward <nick@salte.io>"
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "iron-demo-helpers": "nick-woodward/iron-demo-helpers#c4381b02f8cbe196a0a35f2fb6060ed8b3b4869a",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5",
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
     "paper-slider": "PolymerElements/paper-slider#^1.0.11"
