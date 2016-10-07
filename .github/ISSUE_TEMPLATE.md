@@ -10,7 +10,7 @@
 <!-- Example: The page turns pink. -->
 
 ### Live Demo
-<!-- Example: https://jsbin.com/cagaye/edit?html,output -->
+<!-- Example: https://jsbin.com/bamofoqipa/edit?html,output -->
 
 ### Steps to reproduce
 
