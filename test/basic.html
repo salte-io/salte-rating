@@ -1,0 +1,93 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>salte-rating basic tests</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../salte-rating.html">
+
+  </head>
+  <body>
+
+    <test-fixture id="rating">
+      <template>
+        <salte-rating></salte-rating>
+      </template>
+    </test-fixture>
+
+    <script>
+      describe('Basic features', function() {
+        var rating;
+
+        beforeEach(function() {
+          rating = fixture('rating');
+        });
+
+        it('instantiating the element works', function() {
+          expect(rating.is).to.be.equal('salte-rating');
+        });
+
+        it('displays 5 rating items', function() {
+          Polymer.dom.flush();
+
+          expect(Polymer.dom(rating.root).querySelectorAll('.item').length).to.be.equal(5);
+        });
+
+        it('displays 10 rating items', function(done) {
+          Polymer.dom.flush();
+
+          rating.set('limit', 10);
+
+          flush(function() {
+            expect(Polymer.dom(rating.root).querySelectorAll('.item').length).to.be.equal(10);
+            done();
+          });
+        });
+
+        it('updates width to display rating correctly', function() {
+          Polymer.dom.flush();
+
+          rating.set('value', 1);
+
+          var icons = Polymer.dom(rating.root).querySelectorAll('.item-icon');
+          expect(icons.length).to.be.equal(5);
+          expect(icons[0].style.width).to.be.equal('100%');
+          expect(icons[1].style.width).to.be.equal('0%');
+          expect(icons[2].style.width).to.be.equal('0%');
+          expect(icons[3].style.width).to.be.equal('0%');
+          expect(icons[4].style.width).to.be.equal('0%');
+        });
+
+        it('updates width to display rating correctly - external value', function(done) {
+          rating.set('value', 2);
+          flush(function() {
+            var icons = Polymer.dom(rating.root).querySelectorAll('.item-icon');;
+            expect(icons.length).to.be.equal(5);
+            expect(icons[0].style.width).to.be.equal('100%');
+            expect(icons[1].style.width).to.be.equal('100%');
+            expect(icons[2].style.width).to.be.equal('0%');
+            expect(icons[3].style.width).to.be.equal('0%');
+            expect(icons[4].style.width).to.be.equal('0%');
+            done();
+          });
+        });
+
+        it('rate gets called when a rating item is clicked', function(done) {
+          Polymer.dom.flush();
+
+          rating.addEventListener('rate', function(e) {
+            expect(e.detail.rating).to.be.equal(1);
+            done();
+          });
+
+          Polymer.dom(rating.root).querySelector('.item-icon').click();
+        });
+      });
+    </script>
+  </body>
+</html>
