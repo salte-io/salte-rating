@@ -19,7 +19,7 @@ addons:
       - google-chrome-stable
 before_script:
   - npm list -g bower --depth=0 || npm install -g bower
-  - npm list -g npm i web-component-tester --depth=0 || npm install -g npm i web-component-tester
+  - npm list -g web-component-tester --depth=0 || npm install -g web-component-tester
   - bower prune
   - bower install
 script:
