@@ -2,17 +2,28 @@ language: node_js
 node_js: stable
 dist: trusty
 sudo: required
+cache:
+  directories:
+    - $(npm config get prefix)
+    - bower_components
+branches:
+  only:
+    - master
 addons:
-  firefox: 46
+  firefox: '46.0'
   sauce_connect: true
   apt:
     sources:
-    - google-chrome
+      - google-chrome
     packages:
-    - google-chrome-stable
+      - google-chrome-stable
 before_script:
-- npm install -g bower polymer-cli
-- bower install
+  - npm list -g bower --depth=0 || npm install -g bower
+  - npm list -g polymer-cli --depth=0 || npm install -g polymer-cli
+  - bower prune
+  - bower install
 script:
-- xvfb-run polymer test
-- if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then polymer test -s 'default'; fi
+  - xvfb-run polymer test
+  - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then polymer test -s 'default'; fi
+notifications:
+  email: change
