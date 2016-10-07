@@ -105,7 +105,15 @@ Custom property | Description | Default
           type: Boolean,
           value: false,
           reflectToAttribute: true
-        }
+    	  },
+
+        /**
+         * The rating items displayed on the screen
+         */
+    	  limitItems: {
+          type: Array,
+          readOnly: true
+    	  }
       },
 
       attached: function() {
@@ -125,11 +133,11 @@ Custom property | Description | Default
        * Renders the items based on the limit
        */
       renderItems: function() {
-        let limitItems = [];
-        for (let i = 0; i < this.limit; i++) {
+        var limitItems = [];
+        for (var i = 0; i < this.limit; i++) {
           limitItems.push(i);
         }
-        this.set('limitItems', limitItems);
+        this._setLimitItems(limitItems);
       },
 
       _refreshRating: function(value) {
