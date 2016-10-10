@@ -21,24 +21,24 @@
     </test-fixture>
 
     <script>
-      describe('Basic features', function() {
+      suite('Basic features', function() {
         var rating;
 
-        beforeEach(function() {
+        setup(function() {
           rating = fixture('rating');
         });
 
-        it('instantiating the element works', function() {
+        test('instantiating the element works', function() {
           expect(rating.is).to.be.equal('salte-rating');
         });
 
-        it('displays 5 rating items', function() {
+        test('displays 5 rating items', function() {
           Polymer.dom.flush();
 
           expect(Polymer.dom(rating.root).querySelectorAll('.item').length).to.be.equal(5);
         });
 
-        it('displays 10 rating items', function(done) {
+        test('displays 10 rating items', function(done) {
           Polymer.dom.flush();
 
           rating.set('limit', 10);
@@ -49,7 +49,7 @@
           });
         });
 
-        it('updates width to display rating correctly', function() {
+        test('updates width to display rating correctly', function() {
           Polymer.dom.flush();
 
           rating.set('value', 1);
@@ -63,7 +63,7 @@
           expect(icons[4].style.width).to.be.equal('0%');
         });
 
-        it('updates width to display rating correctly - external value', function(done) {
+        test('updates width to display rating correctly - external value', function(done) {
           rating.set('value', 2);
           flush(function() {
             var icons = Polymer.dom(rating.root).querySelectorAll('.item-icon');;
@@ -77,7 +77,7 @@
           });
         });
 
-        it('rate gets called when a rating item is clicked', function(done) {
+        test('rate gets called when a rating item is clicked', function(done) {
           Polymer.dom.flush();
 
           rating.addEventListener('rate', function(e) {
