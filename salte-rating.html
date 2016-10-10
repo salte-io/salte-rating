@@ -105,7 +105,15 @@ Custom property | Description | Default
           type: Boolean,
           value: false,
           reflectToAttribute: true
-        }
+    	  },
+
+        /**
+         * The rating items displayed on the screen
+         */
+    	  limitItems: {
+          type: Array,
+          readOnly: true
+    	  }
       },
 
       attached: function() {
@@ -125,15 +133,15 @@ Custom property | Description | Default
        * Renders the items based on the limit
        */
       renderItems: function() {
-        let limitItems = [];
-        for (let i = 0; i < this.limit; i++) {
+        var limitItems = [];
+        for (var i = 0; i < this.limit; i++) {
           limitItems.push(i);
         }
-        this.set('limitItems', limitItems);
+        this._setLimitItems(limitItems);
       },
 
       _refreshRating: function(value) {
-        let items = Polymer.dom(this.root).querySelectorAll('.item-icon');
+        var items = Polymer.dom(this.root).querySelectorAll('.item-icon');
         for (var i = 0; i < items.length; i++) {
           items[i].style.width = Math.min(Math.max(value - i, 0), 1) * 100 + '%';
         }
