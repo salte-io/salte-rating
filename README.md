@@ -1,44 +1,41 @@
-_[Demo and API docs](https://salte-io.github.io/salte-rating/)_
+[![Bower][bower-image]][bower-url]
+[![Travis][travis-ci-image]][travis-ci-url]
+[![Slack Status][slack-image]][slack-url]
 
 # \<salte-rating\>
 
-[![Slack Status][slack-image]][slack-url]
-[![Travis][travis-ci-image]][travis-ci-url]
+[\<salte-rating\>][salte-rating-demo] is a [Polymer]() element that can be used to display ratings with extreme precision.
 
-## Install the Polymer-CLI
+## Example
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
-
-## Viewing Your Application
-
+<!--
 ```
-$ polymer serve
+<custom-element-demo>
+  <template>
+      <link rel=”import” href=”salte-rating.html”>
+      <next-code-block></next-code-block>
+  </template>    
+</custom-element-demo>
 ```
-
-## Building Your Application
-
+-->
 ```
-$ polymer build
-```
-
-This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
-containing a bundled (Vulcanized) and unbundled builds, both run through HTML,
-CSS, and JS optimizers.
-
-You can serve the built versions by giving `polymer serve` a folder to serve
-from:
-
-```
-$ polymer serve build/bundled
+<salte-rating value="3.8"></salte-rating>
 ```
 
-## Running Tests
+## Getting started
 
-```
-$ polymer test
-```
+Visit https://beta.webcomponents.org/element/salte-io/salte-rating for freatures, demos, and documentation.
+
+## License
+
+MIT
 
 Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+
+[salte-rating-demo]: https://beta.webcomponents.org/element/salte-io/salte-rating
+
+[bower-image]: https://img.shields.io/bower/v/salte-rating.svg
+[bower-url]: https://github.com/salte-io/salte-rating
 
 [slack-image]: https://salte-slack.herokuapp.com/badge.svg
 [slack-url]: https://salte-slack.herokuapp.com/
