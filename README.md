@@ -6,26 +6,9 @@
 
 [\<salte-rating\>][salte-rating-demo] is a [Polymer]() element that can be used to display ratings with extreme precision.
 
-## Example
-
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="salte-rating.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-```html
-<salte-rating value="3.8"></salte-rating>
-```
-
 ## Getting started
 
-Visit https://beta.webcomponents.org/element/salte-io/salte-rating for freatures, demos, and documentation.
+Visit https://beta.webcomponents.org/element/salte-io/salte-rating for features, demos, and documentation.
 
 ## License
 
