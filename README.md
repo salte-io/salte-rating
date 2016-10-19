@@ -8,17 +8,18 @@
 
 ## Example
 
-<!--
+<!---
 ```
 <custom-element-demo>
   <template>
-      <link rel=”import” href=”salte-rating.html”>
-      <next-code-block></next-code-block>
-  </template>    
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="salte-rating.html">
+    <next-code-block></next-code-block>
+  </template>
 </custom-element-demo>
 ```
 -->
-```
+```html
 <salte-rating value="3.8"></salte-rating>
 ```
 
