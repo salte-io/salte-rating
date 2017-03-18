@@ -1,10 +1,11 @@
-[![Bower][bower-image]][bower-url]
+[![Gitter](https://badges.gitter.im/salte-io/salte-rating.svg)](https://gitter.im/salte-io/salte-rating?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Travis][travis-ci-image]][travis-ci-url]
-[![Slack Status][slack-image]][slack-url]
+
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/salte-io/salte-rating)
 
 # \<salte-rating\>
 
-[\<salte-rating\>][salte-rating-demo] is a [Polymer]() element that can be used to display ratings with extreme precision.
+[\<salte-rating\>][salte-rating-demo] is a [Polymer](https://github.com/Polymer/polymer) element that can be used to display ratings with extreme precision.
 
 ## Getting started
 
@@ -18,9 +19,6 @@ MIT
 
 [bower-image]: https://img.shields.io/bower/v/salte-rating.svg
 [bower-url]: https://github.com/salte-io/salte-rating
-
-[slack-image]: https://salte-slack.herokuapp.com/badge.svg
-[slack-url]: https://salte-slack.herokuapp.com/
 
 [travis-ci-image]: https://img.shields.io/travis/salte-io/salte-rating.svg?style=flat
 [travis-ci-url]: https://travis-ci.org/salte-io/salte-rating
