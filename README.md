@@ -8,7 +8,7 @@
 
 <!---
 ```
-<custom-element-demo height="600">
+<custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="salte-rating.html">
