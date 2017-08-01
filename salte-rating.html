@@ -1,11 +1,12 @@
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/utils/async.html">
 
-<!-- Iron Elements -->
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-icons/iron-icons.html">
 
 <!--
+
 `salte-rating` allows you to display ratings with extreme precision.
+
 ### Styling
 The following custom properties and mixins are also available for styling:
 
@@ -14,8 +15,13 @@ Custom property | Description | Default
 `--salte-rating-limit-color` | Color of the max number of items | `rgba(200, 200, 200, 0.9)`
 `--salte-rating-value-color` | Color of the current rating items | `rgba(55, 55, 55, 0.9)`
 
+@customElement
+@polymer
 @demo demo/index.html
+@element salte-rating
+
 -->
+
 <dom-module id="salte-rating">
   <template>
     <style>
@@ -50,6 +56,7 @@ Custom property | Description | Default
         overflow: hidden;
       }
     </style>
+
     <div class="background-rating">
       <template is="dom-repeat" items="{{limitItems}}" strip-whitespace>
         <iron-icon icon="[[icon]]"></iron-icon>
@@ -67,94 +74,95 @@ Custom property | Description | Default
   </template>
 
   <script>
-    Polymer({
+    class SalteRating extends Polymer.Element {
+      static get is () { return 'salte-rating'; }
 
-      is: 'salte-rating',
+      static get properties () {
+        return {
+          /**
+           * The number of items to display
+           */
+          limit: {
+            type: Number,
+            value: 5,
+            observer: 'renderItems'
+          },
 
-      properties: {
-        /**
-         * The number of items to display
-         */
-        limit: {
-          type: Number,
-          value: 5,
-          observer: 'renderItems'
-        },
+          /**
+           * The icon to use for the rating
+           */
+          icon: {
+            type: String,
+            value: 'star'
+          },
 
-        /**
-         * The icon to use for the rating
-         */
-        icon: {
-          type: String,
-          value: 'star'
-        },
+          /**
+           * The current rating
+           */
+          value: {
+            type: Number,
+            value: 0,
+            observer: 'reset'
+          },
 
-        /**
-         * The current rating
-         */
-        value: {
-          type: Number,
-          value: 0,
-          observer: 'reset'
-        },
+          /**
+           * If true, the user will not be able to select a rating.
+           */
+          disabled: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true
+          },
 
-        /**
-         * If true, the user will not be able to select a rating.
-         */
-        disabled: {
-          type: Boolean,
-          value: false,
-          reflectToAttribute: true
-    	  },
+          /**
+           * The rating items displayed on the screen
+           */
+          limitItems: {
+            type: Array,
+            readOnly: true
+          }
+        };
+      }
 
-        /**
-         * The rating items displayed on the screen
-         */
-    	  limitItems: {
-          type: Array,
-          readOnly: true
-    	  }
-      },
-
-      attached: function() {
-        this.async(function() {
-          this.reset();
-        }.bind(this));
-      },
+      connectedCallback () {
+        super.connectedCallback();
+        Polymer.Async.microTask.run(() => this.reset());
+      }
 
       /**
        * Refreshes the rating display to the current rating
        */
-      reset: function() {
+      reset (e) {
         this._refreshRating(this.value);
-      },
+      }
 
       /**
        * Renders the items based on the limit
        */
-      renderItems: function() {
+      renderItems () {
         var limitItems = [];
         for (var i = 0; i < this.limit; i++) {
           limitItems.push(i);
         }
         this._setLimitItems(limitItems);
-      },
+      }
 
-      _refreshRating: function(value) {
-        var items = Polymer.dom(this.root).querySelectorAll('.item-icon');
+      _refreshRating (value) {
+        if (typeof value != "number") return;
+        var items = this.shadowRoot.querySelectorAll('.item-icon');
         for (var i = 0; i < items.length; i++) {
           items[i].style.width = Math.min(Math.max(value - i, 0), 1) * 100 + '%';
         }
-      },
+      }
 
-      _previewRating: function(e) {
+      _previewRating (e) {
         if (this.disabled) return;
         this._refreshRating(e.model.index + 1);
-      },
+      }
 
-      _onRate: function(e) {
+      _onRate (e) {
         if (this.disabled) return;
-        this.fire('rate', { rating: e.model.index + 1});
+        this.dispatchEvent(new CustomEvent('rate', {detail: {rating: e.model.index + 1}}));
       }
 
       /**
@@ -163,6 +171,8 @@ Custom property | Description | Default
        * @event rate
        * @param {number} rating the rating the user selected.
        */
-    });
+    }
+
+    window.customElements.define(SalteRating.is, SalteRating);
   </script>
 </dom-module>

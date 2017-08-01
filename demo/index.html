@@ -11,54 +11,77 @@
 
     <link rel="import" href="../../paper-slider/paper-slider.html">
 
+    <link rel="import" href="../../iron-icons/iron-icons.html">
+
     <link rel="import" href="../salte-rating.html">
 
-    <style is="custom-style" include="demo-pages-shared-styles">
-    </style>
+    <custom-style>
+      <style include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
   </head>
   <body>
 
     <div class="vertical-section-container centered">
       <h3>Decimals are supported</h3>
       <demo-snippet>
-        <template is="dom-bind">
-            <salte-rating value="[[value]]"></salte-rating>
+        <template>
+          <dom-bind id="demo1">
+            <template>
+              <salte-rating value="[[value]]"></salte-rating>
 
-            <!-- Demo Helper -->
-            <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>
+              <!-- Demo Helper -->
+              <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>
+            </template>
+          </dom-bind>
         </template>
       </demo-snippet>
       <h3>Custom icons are supported</h3>
       <demo-snippet>
-        <template is="dom-bind">
-            <salte-rating value="[[value]]" icon="favorite"></salte-rating>
-            <salte-rating value="[[value]]" icon="pets"></salte-rating>
-            <salte-rating value="[[value]]" icon="code"></salte-rating>
+        <template>
+          <dom-bind id="demo2">
+            <template>
+              <salte-rating value="[[value]]" icon="favorite"></salte-rating>
+              <salte-rating value="[[value]]" icon="pets"></salte-rating>
+              <salte-rating value="[[value]]" icon="code"></salte-rating>
 
-            <!-- Demo Helper -->
-            <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>
+              <!-- Demo Helper -->
+              <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>
+            </template>
+         </dom-bind>
         </template>
       </demo-snippet>
       <h3>Limit and value colors can be customized</h3>
       <demo-snippet>
-        <template is="dom-bind">
-            <style is="custom-style">
-              salte-rating.blue {
-                --salte-rating-limit-color: rgba(200, 200, 255, 0.9);
-                --salte-rating-value-color: rgba(55, 55, 175, 0.9);
-              }
+        <template>
+          <dom-bind id="demo3">
+            <template>
+              <custom-style>
+                <style>
+                  salte-rating.blue {
+                    --salte-rating-limit-color: rgba(200, 200, 255, 0.9);
+                    --salte-rating-value-color: rgba(55, 55, 175, 0.9);
+                  }
 
-              salte-rating.red {
-                --salte-rating-limit-color: rgba(255, 200, 200, 0.9);
-                --salte-rating-value-color: rgba(175, 55, 55, 0.9);
-              }
-            </style>
+                  salte-rating.red {
+                    --salte-rating-limit-color: rgba(255, 200, 200, 0.9);
+                    --salte-rating-value-color: rgba(175, 55, 55, 0.9);
+                  }
+                </style>
+              </custom-style>
 
-            <salte-rating class="blue" value="[[value]]" icon="favorite"></salte-rating>
-            <salte-rating class="red" value="[[value]]" icon="pets"></salte-rating>
+              <salte-rating class="blue" value="[[value]]" icon="favorite"></salte-rating>
+              <salte-rating class="red" value="[[value]]" icon="pets"></salte-rating>
 
-            <!-- Demo Helper -->
-            <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>
+              <!-- Demo Helper -->
+              <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>
+            </template>
+          </dom-bind>
+          <script>
+            var autobind = document.querySelector('#demo3');
+
+            autobind.value = 2.5;
+          </script>
         </template>
       </demo-snippet>
     </div>
