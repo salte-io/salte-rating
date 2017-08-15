@@ -10,20 +10,17 @@ branches:
   only:
     - master
 addons:
-  firefox: '46.0'
-  sauce_connect: true
+  firefox: latest
   apt:
     sources:
       - google-chrome
     packages:
       - google-chrome-stable
 before_script:
-  - npm list -g bower --depth=0 || npm install -g bower
-  - npm list -g web-component-tester --depth=0 || npm install -g web-component-tester
-  - bower prune
-  - bower install
+  - npm install -g polymer-cli
+  - polymer install --variants
 script:
-  - xvfb-run wct
-  - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then wct -s 'default'; fi
+  - xvfb-run polymer test
+  - 'if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then polymer test -s ''default''; fi'
 notifications:
   email: change
