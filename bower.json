@@ -1,6 +1,6 @@
 {
   "name": "salte-rating",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "allows you to display ratings with extreme precision",
   "authors": [
     "Nick Woodward <nick@salte.io>"
