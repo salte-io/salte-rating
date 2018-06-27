@@ -58,11 +58,14 @@
             salte-rating.red {
               --salte-rating-limit-color: rgba(255, 200, 200, 0.9);
               --salte-rating-value-color: rgba(175, 55, 55, 0.9);
+              --salte-rating-disabled-color: rgba(55, 55, 55, 0.4);
             }
           </style>
 
           <salte-rating class="blue" value="[[value]]" icon="favorite"></salte-rating>
           <salte-rating class="red" value="[[value]]" icon="pets"></salte-rating>
+          disabled: 
+          <salte-rating disabled class="red" value="[[value]]" icon="pets"></salte-rating>
 
           <!-- Demo Helper -->
           <paper-slider step="0.1" min="0" max="5" immediate-value="{{value}}" pin="true"></paper-slider>

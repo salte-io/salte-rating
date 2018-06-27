@@ -13,6 +13,7 @@ Custom property | Description | Default
 ----------------|-------------|----------
 `--salte-rating-limit-color` | Color of the max number of items | `rgba(200, 200, 200, 0.9)`
 `--salte-rating-value-color` | Color of the current rating items | `rgba(55, 55, 55, 0.9)`
+`--salte-rating-disabled-color` | Color of the current rating items when disabled | `rgba(55, 55, 55, 0.9)`
 
 @demo demo/index.html
 -->
@@ -24,12 +25,16 @@ Custom property | Description | Default
         position: relative;
       }
 
-      :host[disabled] .foreground-rating .item {
+      :host([disabled]) .foreground-rating .item {
         cursor: default;
       }
 
       .background-rating {
         color: var(--salte-rating-limit-color, rgba(200, 200, 200, 0.9));
+      }
+
+      :host([disabled]) .foreground-rating {
+        color: var(--salte-rating-disabled-color,  rgba(55, 55, 55, 0.9));
       }
 
       .foreground-rating {
